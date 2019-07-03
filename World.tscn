@@ -12,7 +12,7 @@
 [ext_resource path="res://Player/Run7.png" type="Texture" id=10]
 [ext_resource path="res://JungleTileset.tres" type="TileSet" id=11]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
@@ -35,7 +35,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 14.0
 height = 28.0
 
@@ -49,13 +49,17 @@ __meta__ = {
 }
 
 [node name="Sprite" type="AnimatedSprite" parent="Character"]
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "Idle"
 speed_scale = 2.0
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
 position = Vector2( 0, 4 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="Character"]
+current = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 11 )
